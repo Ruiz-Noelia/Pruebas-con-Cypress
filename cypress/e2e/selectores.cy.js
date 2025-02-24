@@ -3,7 +3,40 @@
 
 describe("login en Saucedemo", () =>{
     beforeEach('Ingresar a la página de Saucedemo', ()=>{
-        cy.visit("https://www.saucedemo.com/v1/")
+        cy.visit("https://www.saucedemo.com/v1/") /*
+        
+        // 1. `cy.visit(url)`
+            - Descripción: Navega a la URL especificada en el navegador.
+            - Ejemplo: `cy.visit('https://example.com')`
+
+
+        2. `cy.get(selector)`
+            - Descripción: Selecciona elementos del DOM usando un selector CSS.
+            - Ejemplo: `cy.get('.btn')`
+
+
+        3. `cy.contains(text)`
+            - Descripción: Selecciona elementos que contienen el texto especificado.
+            - Ejemplo: `cy.contains('Submit')`
+                
+
+        4. `cy.click()`
+            - Descripción: Hace clic en el elemento seleccionado.
+            - Ejemplo: `cy.get('.btn').click()`
+
+        5. `cy.type(text)`
+            - Descripción: Escribe texto en el campo de entrada seleccionado.
+            - Ejemplo: `cy.get('input').type('Hello World')`
+
+        6. `cy.clear()`
+            - Descripción: Borra el texto en un campo de entrada seleccionado.
+            - Ejemplo: `cy.get('input').clear()`
+
+        Estos comandos como vemos en el ejemplo de cy.type, a su vez pueden concatenarse para ejecutarse junto a otros comandos.
+        Por ejemplo:
+            cy.get('#login2').contains("Log in").click()
+
+   */
     })
 
     it("Login ok", ()=>{
