@@ -1,25 +1,16 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//import 'cypress-real-events' - se deja comentado por si se usa la librerìa, se descomenta la lìnea 11 para reemplazar y comentar la lìnea 10
+
+//se recomienda colocar comandos bàsicos
+
+Cypress.Commands.add('escribir', (selector, dato)=>{
+    cy.get(selector).clear().type(dato); //traemos el selector, lo limpieamos e ingresamos el dato
+})
+
+Cypress.Commands.add('hacer_click', (selector)=>{
+    cy.get(selector).click()
+    // cy.get(selector).realClick()
+})
+
+Cypress.Commands.add('asertion_text', (selector, texto)=>{
+     cy.get(selector).should('have.text', texto)
+})
