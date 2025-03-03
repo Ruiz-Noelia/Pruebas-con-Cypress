@@ -33,27 +33,30 @@ describe('Login Saucedemo', () => {
         /* ==== End Cypress Studio ==== */
     })
 
-    it("Usuarios con Error", () => {
+    it.only("Usuarios con Error", () => {
         // iteramos la variable con los datos que contenga - ciclo forEach
         usersError.forEach((dato) => {
             cy.get('[data-test="username"]').type(dato.username),
-            cy.get('[data-test="password"]').type(dato.password)
+            cy.get('[data-test="password"]').type(dato.password),
             cy.get('#login-button').click();
-            cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Username and password do not match any user in this service')
+            cy.get('#login_button_container > div > form > h3').should('have.text', 'Epic sadface: Username and password do not match any user in this service')
+            cy.get('[data-test="username"]').clear(),
+            cy.get('[data-test="password"]').clear()
         })
 
     });
 
     //.only, solo corre esa prueba
-    it("Login correcto", ()=>{
-        usersOk.forEach((dato)=>{
+    it("Login correcto", () => {
+        usersOk.forEach((dato) => {
             cy.get('[data-test="username"]').type(dato.username),
-            cy.get('[data-test="password"]').type(dato.password)
+            cy.get('[data-test="password"]').type(dato.password),
             cy.get('#login-button').click();
             cy.get('.bm-burger-button > button').click();
             cy.get('#logout_sidebar_link').click();
+            
         })
-        
+
     })
 
 
