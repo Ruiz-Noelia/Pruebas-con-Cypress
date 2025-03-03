@@ -12,6 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "cypress": "^14.0.3"
+    "cypress": "^14.0.3",
+    "cypress-real-events": "^1.14.0"
   }
 }
