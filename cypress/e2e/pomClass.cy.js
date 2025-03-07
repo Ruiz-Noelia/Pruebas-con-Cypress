@@ -2,15 +2,22 @@ import homePage from '../pages/homePage'
 import inventoryPage from '../pages/inventoryPage'
 
 describe ('Saucedemo Pruebas', ()=>{
+
+    let usuariosOk;
+
     before (()=>{
-        cy.visit('/')
+        cy.visit('/');
+        cy.fixture('/users_ok.json').then((data)=>{usuariosOk = data});
     })
 
     it('Login ok', ()=>{
-        homePage.typeUsername('standard_user')
-        homePage.typePassword('secret_sauce')
+        usuariosOk.forEach(usuario => {
+        homePage.typeUsername(usuario.username)
+        homePage.typePassword(usuario.password)
         homePage.clickLoginButton()
         inventoryPage.abrirMenu()
         inventoryPage.logout()
+        });
+        
     })
 })
