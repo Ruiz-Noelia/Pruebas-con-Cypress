@@ -14,4 +14,31 @@ class inventoryPage {
             //btn_remove: ()=> cy.get("btn_secondary btn_inventory")
         }
     }
+
+    //Métodos de mi clase
+    abrirMenu() {+
+        this.elements.menu().click()
+    }
+
+    logout(){
+        this.elements.logout().click()
+    }
+
+    verTitulo(){
+        this.elements.page_title().should('have.text', 'Products')
+    }
+
+    verificarImagen(){
+        this.elements.product1.img().click()
+    }
+
+    verificarTitulo(texto){
+        this.elements.product1.prod_title().should('have.text', texto)
+    }
+
+    verificarPrecio(precio){
+        this.elements.product1.price().should('have.text', precio)
+    }
 }
+
+export default new inventoryPage()
