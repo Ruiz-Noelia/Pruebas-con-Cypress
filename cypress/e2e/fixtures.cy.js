@@ -26,7 +26,7 @@ describe('Login Saucedemo', () => {
     it.only("Usuario Bloqueado", () => {
         cy.get('[data-test="username"]').type(userLocked.username),
         cy.get('[data-test="password"]').type(userLocked.password)
-
+        cy.screenshot() // le pedimos que se genere una captura después de llenar los inputs
         /* ==== Generated with Cypress Studio ==== */
         cy.get('#login-button').click();
         cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Sorry.');
