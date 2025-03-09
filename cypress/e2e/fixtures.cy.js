@@ -23,7 +23,7 @@ describe('Login Saucedemo', () => {
     })
 
     //solución a los problemas de llamado fetch - método POST
-    it("Usuario Bloqueado", () => {
+    it.only("Usuario Bloqueado", () => {
         cy.get('[data-test="username"]').type(userLocked.username),
         cy.get('[data-test="password"]').type(userLocked.password)
 
@@ -33,7 +33,7 @@ describe('Login Saucedemo', () => {
         /* ==== End Cypress Studio ==== */
     })
 
-    it.only("Usuarios con Error", () => {
+    it("Usuarios con Error", () => {
         // iteramos la variable con los datos que contenga - ciclo forEach
         usersError.forEach((dato) => {
             cy.get('[data-test="username"]').type(dato.username),

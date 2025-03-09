@@ -6,7 +6,8 @@
   "scripts": {
     "test": "cypress open",
     "cypress:open": "npx cypress open",
-    "cypress:run" : "npx cypress run"
+    "cypress:run" : "npx cypress run",
+    "cypress:testUnico" : "npx cypress run --spec cypress/e2e/fixtures.cy.js"
   },
   "keywords": [],
   "author": "",
