@@ -29,7 +29,7 @@ describe('Login Saucedemo', () => {
 
         /* ==== Generated with Cypress Studio ==== */
         cy.get('#login-button').click();
-        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Sorry, this user has been locked out.');
+        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Sorry.');
         /* ==== End Cypress Studio ==== */
     })
 
