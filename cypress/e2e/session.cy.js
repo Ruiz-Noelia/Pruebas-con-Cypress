@@ -2,25 +2,21 @@ describe('sessions en Cypress', () => {
 
     beforeEach(() => {
         //antes de cada prueba iniciamos la sesión
-        cy.session('Login Saucedemo', () => {
-            cy.visit('/')
-            cy.loginOk2()
-        })
-
+        cy.LoginSession()
     })
 
     it('verificamos la url', () => {
-        cy.visit('/inventory.html', {failOnStatusCode: false}) //se añade el código de error en la página de SauceDemo
+        cy.InventoryAcces() 
         cy.url().should('contain', '/inventory.html')
     });
 
     it('verificar título', () => {
-        cy.visit('/inventory.html', {failOnStatusCode: false})
+        cy.InventoryAcces()
         cy.title().should('eq', 'Swag Labs')
     });
 
     it('verificar primer producto - mochila', () => {
-        cy.visit('/inventory.html', {failOnStatusCode: false})
+        cy.InventoryAcces()
 
         cy.get('#item_4_title_link > div').contains('Sauce Labs Backpack').click()
         cy.url().should('contain', '/inventory-item.html?id=4')
@@ -40,7 +36,7 @@ describe('sessions en Cypress', () => {
 
 
     it('verificar segundo producto - remera', () => {
-        cy.visit('/inventory.html', {failOnStatusCode: false})
+        cy.InventoryAcces()
 
         cy.get('[data-test="item-1-title-link"] > [data-test="inventory-item-name"]').contains('Sauce Labs Bolt T-Shirt').click()
         cy.url().should('contain', '/inventory-item.html?id=1')
@@ -60,7 +56,7 @@ describe('sessions en Cypress', () => {
 
 
     it('verificar tercer producto - luz de bici', () => {
-        cy.visit('/inventory.html', {failOnStatusCode: false})
+        cy.InventoryAcces()
 
         cy.get('[data-test="item-0-title-link"] > [data-test="inventory-item-name"]').contains('Sauce Labs Bike Light').click()
         cy.url().should('contain', '/inventory-item.html?id=0')

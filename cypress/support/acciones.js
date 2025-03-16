@@ -3,8 +3,8 @@ import inventoryPage from "../pages/inventoryPage";
 
 Cypress.Commands.add('loginOk', (username, password) => {
     cy.get("[data-test='username']").type(username),
-    cy.get("[data-test='password']").type(password),
-    cy.get('#login-button').click();
+        cy.get("[data-test='password']").type(password),
+        cy.get('#login-button').click();
 })
 
 Cypress.Commands.add('loginOkPOM', (username, password) => {
@@ -17,8 +17,8 @@ Cypress.Commands.add('loginOkPOM', (username, password) => {
 
 Cypress.Commands.add('loginOk2', () => {
     cy.get("[data-test='username']").type('standard_user'),
-    cy.get("[data-test='password']").type('secret_sauce'),
-    cy.get('#login-button').click();
+        cy.get("[data-test='password']").type('secret_sauce'),
+        cy.get('#login-button').click();
 })
 
 Cypress.Commands.add("logOut", () => {
@@ -28,4 +28,15 @@ Cypress.Commands.add("logOut", () => {
 
 Cypress.Commands.add('asertion_text', (selector, texto) => {
     cy.get(selector).should('have.text', texto)
+})
+
+Cypress.Commands.add('LoginSession', () => {
+    cy.session('Login Saucedemo', () => {
+        cy.visit('/')
+        cy.loginOk2()
+    })
+})
+
+Cypress.Commands.add('InventoryAcces', ()=> {
+    cy.visit('/inventory.html', {failOnStatusCode: false})
 })
