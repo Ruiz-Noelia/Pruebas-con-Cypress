@@ -6,7 +6,7 @@ describe('subir archivo', () => {
         const dataTransfer = new DataTransfer();
 
         //si el archivo se encuentra fuera de nuestracarpeta proyecto de cypress usamos sí o sí la ruta ABSOLUTA
-        cy.get('#dropArea').selectFile('c:/Users/pc/Downloads/bloque.png', { action: 'drag-drop' }) //indicamos donde soltamos nuestro archivo
+        //cy.get('#dropArea').selectFile('c:/Users/pc/Downloads/bloque.png', { action: 'drag-drop' }) //indicamos donde soltamos nuestro archivo
 
         // si el archivo a subir está dentro del proyecto nuestro de Cypress, lo subimos con la ruta relativa
         cy.get('#dropArea').selectFile('cypress/downloads/post.png', { action: 'drag-drop' })
