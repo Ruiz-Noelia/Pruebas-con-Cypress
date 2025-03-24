@@ -9,7 +9,7 @@ describe('subir archivo', () => {
         //cy.get('#dropArea').selectFile('c:/Users/pc/Downloads/bloque.png', { action: 'drag-drop' }) //indicamos donde soltamos nuestro archivo
 
         // si el archivo a subir está dentro del proyecto nuestro de Cypress, lo subimos con la ruta relativa
-        cy.get('#dropArea').selectFile('cypress/downloads/post.png', { action: 'drag-drop' });
+        cy.get('#dropArea').selectFile('cypress/fixtures/post.png', { action: 'drag-drop' });
 
 
     });
