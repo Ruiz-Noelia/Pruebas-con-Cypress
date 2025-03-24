@@ -17,3 +17,4 @@
 import './commands'
 import './acciones.js' //importo el archivo que cree para los nuevos comandos para poder usarlo dentro de cualquier archivo de Cypress
 import '../plugins/index.js' //se usa el plugin para los errores de sauceDemo - traìdo de repo
+import 'cypress-mochawesome-reporter/register'; //importamos la librería acá para poder usarla en todos los archivos

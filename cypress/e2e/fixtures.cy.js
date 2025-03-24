@@ -23,17 +23,17 @@ describe('Login Saucedemo', () => {
     })
 
     //solución a los problemas de llamado fetch - método POST
-    it("Usuario Bloqueado", () => {
+    it.only("Usuario Bloqueado", () => {
         cy.get('[data-test="username"]').type(userLocked.username),
         cy.get('[data-test="password"]').type(userLocked.password)
-
+        cy.screenshot() // le pedimos que se genere una captura después de llenar los inputs
         /* ==== Generated with Cypress Studio ==== */
         cy.get('#login-button').click();
-        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Sorry, this user has been locked out.');
+        cy.get('[data-test="error"]').should('have.text', 'Epic sadface: Sorry.');
         /* ==== End Cypress Studio ==== */
     })
 
-    it.only("Usuarios con Error", () => {
+    it("Usuarios con Error", () => {
         // iteramos la variable con los datos que contenga - ciclo forEach
         usersError.forEach((dato) => {
             cy.get('[data-test="username"]').type(dato.username),

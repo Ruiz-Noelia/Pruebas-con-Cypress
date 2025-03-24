@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "cypress open",
-    "cypress:open": "npx cypress open"
+    "cypress:open": "npx cypress open",
+    "cypress:run" : "npx cypress run",
+    "cypress:testUnico" : "npx cypress run --spec cypress/e2e/fixtures.cy.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +15,7 @@
   "type": "commonjs",
   "dependencies": {
     "cypress": "^14.0.3",
+    "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-real-events": "^1.14.0"
   }
 }

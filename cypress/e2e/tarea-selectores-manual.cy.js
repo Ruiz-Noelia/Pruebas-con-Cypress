@@ -11,7 +11,7 @@ Enviar la captura del código, o el archivo .cy.js
 
 describe("Suite de tarea clase 2", ()=>{
     //forma manual de capturar selectores con los #id
-    it("Inicio se sesión en Saucedemo ok", ()=>{
+    it("Inicio de sesión en Saucedemo ok", ()=>{
         cy.visit("https://www.saucedemo.com/v1/"),
         cy.get('#user-name').type('standard_user')
         cy.get('#password'). type('secret_sauce')
