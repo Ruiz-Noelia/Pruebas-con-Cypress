@@ -6,6 +6,12 @@ describe("Login SauceDemo", () => {
             cy.fixture('sauce_credenciales').then((datos) => {
                 this.dato = datos
             })
+        cy.fixture('../fixtures/DOM/loginElements.json').then((data) => { //traemos los selectores de nuestro json
+            this.elemento = data
+        })
+        cy.fixture('../fixtures/DOM/messageError.json').then((data)=>{
+            this.mensaje = data
+        })
     })
 
     it("Usuario Bloqueado", function () {
@@ -24,10 +30,10 @@ describe("Login SauceDemo", () => {
     });
 
     it.only("Password con Error", function () {
-        cy.escribir('[data-test="username"]', this.dato.standardUser), //reemplazamos por nuestro comando personalizado para escribir en los inputs
-        cy.escribir('[data-test="password"]', this.dato.errorPassword);
-        cy.hacer_click('#login-button');
-        cy.asertion_text('[data-test="error"]', 'Epic sadface: Username and password do not match any user in this service')
+        cy.escribir(this.elemento.login.username, this.dato.standardUser), //reemplazamos por nuestro comando personalizado para escribir en los inputs
+        cy.escribir(this.elemento.login.password, this.dato.errorPassword);
+        cy.hacer_click(this.elemento.login.btnLogin);
+        cy.asertion_text(this.elemento.login.errorMsg, this.mensaje.msg.invalid)
     });
 
     it("Login correcto", function () {
