@@ -7,7 +7,7 @@ describe("Login correcto Saucedemo", () => {
     })
 
     it("Login correcto", () => {
-        cy.asertion_text('.product_label', 'Products');
+        cy.asertion_text('#header_container > div.header_secondary_container > span', 'Products');
     })
 
     afterEach(() => {
