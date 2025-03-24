@@ -1,0 +1,40 @@
+# This is a basic workflow that is manually triggered
+
+name: Cypress Tests
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+    # Inputs the workflow accepts.
+    branches:
+      - main
+  pull_request:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  cypress-tests:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # PASO 1: Clonar el repo
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # PASO 2: Configurar Node JS
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+          node-version: 22.14.0 
+    # PASO 3: Instalar dependencias
+    - name: Install dependencies
+      run: npm install
+      
+    # PASO 4: Ejecución de las pruebas de Cypress
+    - name: Run Cypress tests
+      run: npx cypress run
+      
+      
+      
