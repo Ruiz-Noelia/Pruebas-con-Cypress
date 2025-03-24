@@ -32,7 +32,11 @@ jobs:
     - name: Install dependencies
       run: npm install
       
-    # PASO 4: Ejecución de las pruebas de Cypress
+    # PASO 4: Verificar ubicación del archivo post.png
+    - name: Verificar ubicación del archivo post.png
+      run: find . -name "post.png"
+
+    # PASO 5: Ejecución de las pruebas de Cypress
     - name: Run Cypress tests
       run: npx cypress run
       
