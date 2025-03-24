@@ -15,3 +15,4 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+import '../plugins/index.js' //se usa el plugin para los errores de sauceDemo - traìdo de repo
